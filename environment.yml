@@ -1,4 +1,4 @@
-name: disobind_env
+name: DisoBindModel
 channels:
   - conda-forge
   - defaults
