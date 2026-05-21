@@ -30,7 +30,7 @@ DisoBindModel/
 
 ### 1. Installation & Environment
 
-Clone the repository and ensure you have the required dependencies installed (TensorFlow 2.x, NumPy, Pandas):
+Clone the repository and ensure you have the required dependencies installed:
 
 ```bash
 git clone [https://github.com/yujing-xy/DisoBindModel.git](https://github.com/yujing-xy/DisoBindModel.git)
