@@ -1,4 +1,4 @@
-# iDBRpred: accurate predictor of intrinsically disordered binding residues in protein sequences
+# iDBRpred: An accurate predictor of intrinsically disordered binding residues in protein sequences
 
 iDBRpred is an advanced deep learning framework based on a dual-branch Transformer architecture, designed for high-accuracy prediction of binding residues within intrinsically disordered regions (IDRs) of protein sequences. 
 ---
