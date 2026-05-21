@@ -67,4 +67,4 @@ MKVIFLALLVSTISSVFAAA...
 ```
 
 
-* times.csv: A performance profiling file recording the inference time (in milliseconds) required to process each individual protein sequence.
+* times.csv: A performance profiling file recording the time (in milliseconds) required to process each individual protein sequence.
