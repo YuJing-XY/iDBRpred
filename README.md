@@ -33,7 +33,7 @@ DisoBindModel/
 Clone the repository and ensure you have the required dependencies installed:
 
 ```bash
-git clone [https://github.com/yujing-xy/DisoBindModel.git](https://github.com/yujing-xy/DisoBindModel.git)
+git clone https://github.com/yujing-xy/DisoBindModel.git
 cd DisoBindModel
 conda env create -f environment.yml -n DisoBindModel
 
