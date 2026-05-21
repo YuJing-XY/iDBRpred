@@ -1,6 +1,6 @@
-# DisoBindModel: A Dual-Branch Transformer for Protein Disordered Binding Residue Prediction
+# iDBRpred: accurate predictor of intrinsically disordered binding residues in protein sequences
 
-DisoBindModel is an advanced deep learning framework based on a dual-branch Transformer architecture, designed for high-accuracy prediction of binding residues within intrinsically disordered regions (IDRs) of protein sequences. 
+iDBRpred is an advanced deep learning framework based on a dual-branch Transformer architecture, designed for high-accuracy prediction of binding residues within intrinsically disordered regions (IDRs) of protein sequences. 
 ---
 
 ## Directory Structure
