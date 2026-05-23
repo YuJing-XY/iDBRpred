@@ -1,0 +1,67 @@
+# Author: Ian Walsh
+# Date: 20th June 2011
+# Model description based on benchmarking results. See paper and supplementary material.
+
+################################
+#
+#
+#
+#	Sequence only based (fast ones)
+#
+#
+#
+
+
+From the results reported in the paper the chosen models for:
+
+(1)
+X-ray fast  = aspritz
+
+xray569: Here we choose aspritz for efficiency reasons. The argument for this is that Sw is
+not significantly different from combo or sspritz and the inputs to aspritz is only 5 (compared to sspritz 20). 
+In addition, aspritz has a slightly better AUC than sspritz. 
+
+casp9: aspritz is state-of-the-art compared to all other fast predictors. 
+
+Note: for execution of 1% of the human genome aspritz takes 3mins, while combo takes aprrox 7mins
+
+
+
+(2)
+
+NMR fast = sspritz
+
+SSpritz is not signicantly different from combo (t-test). Since, combo is twice as slow as 
+SSpritz we choose SSpritz for efficiency reasons. 
+
+
+
+(3)
+
+Disprot = combo (i.e. sspritz + aspritz)
+
+combo has significantly better AUC but and the best Sw. However, sw is not signifcantly better compared to other fast 
+methods. 
+
+
+######################
+#
+#
+#
+#
+#	PSI-BLAST BASED
+#
+
+(1)
+X-ray = combo_all (i.e. sspritz + aspritz + sspritzp + aspritzp)
+
+Although SSpritzP has a better Sw on 560 x-ray defined proteins it seems that combo_all has the best AUC. In addition, Sw and 
+AUC are best on the CASP9 data. 
+
+
+(2) 
+NMR = combo_all (i.e. sspritz + aspritz + sspritzp + aspritzp)
+
+Although combo_psi has the best Sw but it is not significantly better than combo_all. In addition, 
+combo_all has a signicantly better AUC. 
+

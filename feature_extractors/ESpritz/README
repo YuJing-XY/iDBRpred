@@ -1,0 +1,125 @@
+Efficient Spritz (ESpritz)
+--------------------------------------------------------------
+ (c)  Ian Walsh and Silvio C.E. Tosatto,  2011.
+       E-mail:   <ian.walsh@bio.unipd.it>
+       --------------------------------------------------------------
+       README File
+       Version 1.1
+
+       Espritz - Efficient prediciton of protein disorder segments
+--------------------------------------------------------------
+
+1. Introduction
+Espritz is software to detect regions of proteins which are thought to contain no structural content. This non-structure
+is known as protein disorder. Espritz uses an efficient and accurate prediction algorithm based on Bi-directional 
+Recursive Neural networks (BRNN's). BRNN's are a sequence based machine learning algorithm which have being found to be useful 
+for other structural predictions such as secondary structure. The method is based solely on the sequence and does not use 
+expensive computations to find multiple sequence alignments.
+For a slightly more detailed technical description of the capabilities and technology used, see the methods page on our server 
+(http://protein.bio.unipd.it/espritz/). For the most detailed description see our "I. Walsh, A.J.M Martin and S. Tosatto. 
+Sequence is sufficient for accurate disorder predictions applied to various genomes, Bioinformatics, SUBMITTED, 2011". 
+
+INSTALL
+
+#### FAST USE ############
+
+	***** This software has been tested only on linux based systems. Perl, C++ runtime must be installed on your system 
+	***** This software may be installed on MAC OS and Windows but we have no support at the moment for these operating systems. 
+
+
+
+	The sequence based fast predictors should work without any tweaking. This is because all files are contained within your folder. 
+	To run your command prompt must be located in the ESpritz installation directory. 
+
+
+
+
+
+
+
+
+#### PSI BLAST alignment use ##################	
+
+
+	However for psi-blast based predictions we recommend the following procedure: 
+
+	(1) Download the latest BLAST binaries at ftp://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/. We
+	used ncbi-blast-2.2.25+-ia32-linux.tar.gz (126MB) for our linux distribution. 
+	(2) Deflate the compressed file: 
+		tar -xzf ncbi-blast-2.2.25+-ia32-linux.tar.gz
+
+	(3) In your new installation record the path to the blastlocation/ncbi-blast-2.2.25+/bin/ directory where blastlocation 
+	is the directory where you decompressed the ncbi-blast-2.2.25+-ia32-linux.tar.gz file. 
+
+	(4) Edit the ./align/getAlignments.pl perl script and replace the $blastdir variable with your new 
+	path blastlocation/ncbi-blast-2.2.25+/bin/
+	
+	(4) Next we need to download the latest blast databases. Conveniently the newest blast distribution above 
+	contains a script to update your sequence databases. Execute the following:
+		cd blastlocation/ncbi-blast-2.2.25+/
+		mkdir blastdb
+		download nr.gz at ftp://ftp.ncbi.nih.gov/blast/db/FASTA/
+		
+	Decompress the latest nr sequence database: 
+		tar -xzf nr.*.tar.gz
+
+	(5) The sequences contain a lot of redundancy. Filter the sequences with the "cd-hit" method http://www.bioinformatics.org/cd-hit/. 
+	Once it is downloaded decompress it:
+		cd location_of_cd-hit
+		tar -xzf cd-hit*
+		sudo make install (or do "make install" as administrator)
+
+	(6) Our tests have shown that filtering the fasta sequences downloaded in (4) with masked low complexity regions were useful 
+	for our disorder predictors. For this we used the packaged "segmasker" program bundled with your ncbi-blast folder. 
+	If you are still located in blastlocation/ncbi-blast-2.2.25+/blastdb:
+		../bin/segmasker -in nr -infmt blastdb -parse_seqids  -outfmt blastdb -out nrfilt
+
+Notes:
+* (1) and (4) may be time consuming depending on your internet connection. Moreover, several gigabytes of hard disk space will be used.  
+* (4) can be manually achieved by downloading the nr.*.tar.gz files from ftp://ftp.ncbi.nlm.nih.gov/blast/db/
+* The above psi-blast setup is only a recommendation. Your favorite method can be used. However, be careful that 
+the script ./align/getAlignments.pl uses the "psiblast" binary which replaces the old "blastpgp" binary. Also, "makeblastdb" 
+binary replaces "formatdb"
+		
+
+Input Options
+			Working directory
+	This is the directory which contains all the fasta files which ESpritz will predict. IMPORTANT: The files must have the .fasta extension.
+	See EXAMPLES.sh to see how to run the software on some example fasta sequences.
+
+			x-ray, Disprot or NMR disorder
+	* x-ray: This is based on missing atoms from the Protein Data Bank (PDB) X-ray solved structures. If this option is 
+	chosen then the predictors with short x-ray disorder options are executed. See EXAMPLES.sh to see how to select this option.
+	* disprot: The dataset used for this definition contains long disorder segments. In particular, disprot a manually curated 
+	database which is often based on functional attributes of the disordered region. If this option is chosen then the predictors 
+	with long disorder options are executed. See EXAMPLES.sh to see how to select this option.
+	* nmr: The dataset used for this definition contains was defined using our server MOBI (http://protein.bio.unipd.it/mobi). 
+	This disorder is basedon the flexibility/mobility between different models in NMR structures. See EXAMPLES.sh to see how to select this option.
+
+
+			Probability decision
+	*  Best Sw: The definition of Sw can be found in the CASP assessments. This option chooses the threshold which maximised the 
+	Sw measure on the training set. This threshold tends to over-predict disorder but is nonetheless useful. See EXAMPLES.sh to 
+	see how to select this option.
+        * 5% False Positive Rate (FPR): This is a stricter definition of disorder compared to best Sw. It is the threshold which 
+	produces 5% False positives on the training data. See EXAMPLES.sh to see how to select this option.
+
+
+Output
+	After prediction all the fasta files in the working directory will have its corresponding prediction file (.espritz extension). These prediction 
+	files will also be placed in the working directory choosen at input.
+
+
+
+References: 
+
+Please cite this if you use our software):
+Walsh,I., Martin,A.J., Di Domenico,T., and Tosatto, S.C. (2012) ESpritz: accurate and fast prediction of protein disorder. Bioinformatics. , 28 (4), 503-509.
+
+Latest BLAST: 
+BMC Bioinformatics. 2009 Dec 15;10:421.
+
+cd-hit
+"Clustering of highly homologous sequences to reduce the size of large protein database", Weizhong Li, Lukasz 
+Jaroszewski & Adam Godzik Bioinformatics, (2001) 17:282-283
+
