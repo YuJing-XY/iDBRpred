@@ -26,8 +26,6 @@ iDBRpred/
 ├── model_weights/           # Model weights
 │   └── Best_B_res_Transformer.keras
 ├── examples/                # Example inputs and outputs
-│   ├── example_input.fasta
-│   └── expected_output.txt
 ├── LICENSE   
 └── README.md                
 
