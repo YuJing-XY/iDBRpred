@@ -39,7 +39,7 @@ iDBRpred/
 Clone the repository and ensure you have the required dependencies installed:
 
 ```bash
-git clone https://github.com/yujing-xy/DisoBindModel.git
+git clone https://github.com/YuJing-XY/iDBRpred.git
 cd iDBRpred
 conda env create -f environment.yml -n iDBRpred_env
 conda activate iDBRpred_env
