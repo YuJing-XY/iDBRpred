@@ -77,8 +77,7 @@ Execute the main predictor script to perform batch inference directly from a FAS
 ```bash
 python predictor.py \
     -i ./examples/example_input.fasta \
-    -o ./output_results \
-    -c config.yaml \
+    -o ./examples \
     -d gpu \
     -t 2
 
