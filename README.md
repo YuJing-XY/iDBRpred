@@ -72,7 +72,7 @@ Before running predictions, open `config.yaml` and update the absolute paths for
 Execute the main predictor script to perform batch inference directly from a FASTA file containing single or multiple protein sequences:
 
 ```bash
-python predictor.py \
+python predict.py \
     -i ./examples/example_input.fasta \
     -o ./examples \
     -d gpu \
