@@ -10,7 +10,7 @@ iDBRpred is an advanced deep learning framework based on a dual-branch Transform
 iDBRpred/
 ├── config.yaml              # Global configuration
 ├── environment.yml          # The required dependencies
-├── predictor.py             # Main prediction script
+├── predict.py               # Main prediction script
 ├── src/                     # Model modules
 │   ├── __init__.py
 │   ├── features.py          
