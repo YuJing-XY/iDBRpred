@@ -39,9 +39,9 @@ iDBRpred/
 Clone the repository and ensure you have the required dependencies installed:
 
 ```bash
-git clone https://github.com/YuJing-XY/iDBRpred.git \
-cd iDBRpred \
-conda env create -f environment.yml -n iDBRpred_env \
+git clone https://github.com/YuJing-XY/iDBRpred.git
+cd iDBRpred
+conda env create -f environment.yml -n iDBRpred_env
 conda activate iDBRpred_env
 
 ```
@@ -51,10 +51,10 @@ conda activate iDBRpred_env
 You must grant execution permissions before your first run the predictor:
 
 ```bash
-chmod +x feature_extractors/GENN+ASAquick/bin/* \
-chmod +x feature_extractors/GENN+ASAquick/asaquick \
-chmod -R +x feature_extractors/MoRFchibi_v1/MCS1.03/mc* \
-chmod +x feature_extractors/ncbi-blast-2.17.0+/bin/* \
+chmod +x feature_extractors/GENN+ASAquick/bin/*
+chmod +x feature_extractors/GENN+ASAquick/asaquick
+chmod -R +x feature_extractors/MoRFchibi_v1/MCS1.03/mc*
+chmod +x feature_extractors/ncbi-blast-2.17.0+/bin/*
 chmod -R +x feature_extractors/ESpritz/
 
 ```
