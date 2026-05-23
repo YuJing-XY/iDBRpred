@@ -1,14 +1,14 @@
 system:
-  default_device: "cuda"
-  default_threads: 8
+  default_device: "gpu"
+  default_threads: 2
 
 esm2:
-  model_dir: "/content/drive/MyDrive/Jing_all_work/Kurgan_lab/Project006_official/FOR_CAID4/CAID_Linker_Predictor/plm_weights/esm2_t33_650M_UR50D/hub/checkpoint"
+  model_dir: ""
   model_name: "esm2_t33_650M_UR50D"
 
 morfchibi:
-  mode: "light" # normal, light, web
+  mode: "web" # normal, light, web
 
 databases:
-  swissprot_path: "/content/drive/MyDrive/Jing_all_work/Bioinformatics_tools/databases/SwissProt/SwissProt"
-  uniref90_path: "/content/drive/MyDrive/Jing_all_work/Bioinformatics_tools/databases/uniref90/uniref90"
+  swissprot_path: "/your/path/to/SwissProt"
+  uniref90_path: "/your/path/to/uniref90"
