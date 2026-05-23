@@ -17,7 +17,7 @@ iDBRpred/
 │   └── utils.py             
 ├── feature_extractors/      # Feature generation
 │   ├── extractors.py        
-│   ├── AUIPred_v3/          
+│   ├── AIUPred_v3/          
 │   ├── GENN+ASAquick/       
 │   ├── MoRFchibi_v1/        
 │   ├── ESpritz/            
