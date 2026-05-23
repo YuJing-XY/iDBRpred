@@ -80,7 +80,7 @@ python predictor.py \
     -o ./output_results \
     -c config.yaml \
     -d gpu \
-    -t 8
+    -t 2
 
 ```
 
