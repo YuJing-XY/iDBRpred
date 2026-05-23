@@ -68,7 +68,7 @@ Before running predictions, open `config.yaml` and update the absolute paths for
 
 * **Databases:** Set swissprot_path and uniref90_path under the 'databases' section to your local SwissProt and UniRef90 database installations.
 
-* **ESM-2 Weights:** Set `model_dir` under the `esm2` section to your custom weights directory. Leave it empty (`""`) if you want the pipeline to auto-download and cache the weights in the default directory: `feature_extractors/Alignment_free_conservation_ESM2/ESM2_weights/checkpoints/`.
+* **ESM-2 Weights:** Set `model_dir` under the `esm2` section to your local esm2_t33_650M_UR50D weights directory. The weights must include 'esm2_t33_650M_UR50D.pt' and 'esm2_t33_650M_UR50D-contact-regression.pt'. Leave it empty (`""`) if you want the pipeline to auto-download and cache the weights in the default directory: `feature_extractors/Alignment_free_conservation_ESM2/ESM2_weights/checkpoints/`.
 
 ### 4. Run Predictions
 
