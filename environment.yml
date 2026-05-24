@@ -1,23 +1,22 @@
 name: iDBRpred_env
 channels:
-  - pytorch
-  - nvidia
   - conda-forge
   - defaults
 dependencies:
   - python=3.12
-  
-  - numpy
-  - pandas
-  - scikit-learn
-  
-  - pytorch=2.10.0
-  - pytorch-cuda=12.8  
-  
   - pip
+
   - pip:
-    - tensorflow[and-cuda]==2.20.0
-    - keras==3.13.2
+    - --extra-index-url https://download.pytorch.org/whl/cu128
+    - numpy==2.0.2
+    - tensorflow==2.20.0
+    - torch==2.10.0+cu128
     - transformers==5.0.0
-    - fair-esm==2.0.0
-    - pyyaml==6.0.3
+    - huggingface_hub==1.11.0
+    - fair-esm
+    - pandas==2.2.2
+    - matplotlib==3.10.0
+    - requests==2.32.4
+    - scikit-learn==1.6.1
+    - sentencepiece
+    - tiktoken
