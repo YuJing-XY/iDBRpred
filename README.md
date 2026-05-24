@@ -69,7 +69,7 @@ Before running predictions, open `config.yaml` and update the absolute paths for
 
 ### 4. Run Predictions
 
-Execute the main predictor script to perform batch inference directly from a FASTA file containing single or multiple protein sequences:
+Execute the main predictor script to perform bulk prediction directly from a FASTA file containing single or multiple protein sequences:
 
 ```bash
 python predict.py \
