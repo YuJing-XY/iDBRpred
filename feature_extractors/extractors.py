@@ -77,11 +77,17 @@ class ESM2Extractor:
         if self.kibby_dir not in sys.path:
             sys.path.insert(0, self.kibby_dir)
             
+        default_target_dir = os.path.join(base_dir, 'feature_extractors', 'Alignment_free_conservation_ESM2', 'ESM2_weights')
+        target_dir = default_target_dir 
+
         if model_dir and os.path.exists(os.path.join(model_dir, f"{model_name}.pt")):
-            target_dir = model_dir
-        else:
-            target_dir = os.path.join(base_dir, 'feature_extractors', 'Alignment_free_conservation_ESM2', 'ESM2_weights')
-            
+            if model_dir.rstrip('/').endswith("checkpoints"):
+                target_dir = os.path.dirname(model_dir.rstrip('/'))
+            else:
+                print(f"  -> [Warning] ESM2 custom weights found in {model_dir}, but the folder is not named 'checkpoints'.")
+                print("  -> [Warning] PyTorch Hub requires this specific folder name. Falling back to default directory to enforce consistency.")
+  
+
         torch.hub.set_dir(target_dir)
             
         from my_library import ESM_Model, RegressionModel
@@ -109,7 +115,8 @@ class ESM2Extractor:
                 min_overlap=300
             )
             return np.array(conservation, dtype=np.float32)
-        except Exception:
+        except Exception as e:
+            print(f"Warning: ESM2 extraction failed. Padding with zeros. Error: {e}")
             return np.zeros(len(sequence), dtype=np.float32)
 
 
