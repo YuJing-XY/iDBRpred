@@ -95,8 +95,8 @@ def main():
             if seq != original_seq.upper():
                 print(f"  -> [Info] Non-standard amino acids detected in {pid}, converted to 'A'.")
             
-            if len(seq) < 32:
-                reason = f"Length ({len(seq)}) < 32"
+            if len(seq) < 21:
+                reason = f"Length ({len(seq)}) < 21"
                 print(f"  -> [Warning] Skipped {pid}: {reason}.")
                 skipped_proteins.append((pid, reason))
                 continue
